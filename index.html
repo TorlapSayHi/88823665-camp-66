@@ -4,8 +4,55 @@
     <title>Page Title</title>
 </head>
 <body>
-    <h1>This is Heading</h1>
-    <p>This is paragraph</p>
-    ภาษาไทย
+    <h1>Workshop #HTML - FORM</h1>
+    <table>
+        <form>
+            <label for="fname">ชื่อ</label>
+            <input type="text" id="fname" name="fname">
+            <br>
+            <label for="lname">สกุล</label>
+            <input type="text" id="lname" name="lname">
+            <br>
+            <label for="dmy">วัน/เดือน/ปีเกิด</label>
+            <input type="date" id="dmy" name="dmy">
+            <br>
+            <label for="age">อายุ</label>
+            <input type="number" id="age" name="age">
+            <br>
+            <label for="gender">เพศ</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="ชาย">ชาย </label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="หญิง">หญิง</label>
+            <br>
+            <label for="img">รูป</label>
+            <input type="file" id="myfile" name="myfile">
+            <br>
+            <label for="address">ที่อยู่</label>
+            <textarea rows="5" cols="40"></textarea>
+            <br>
+            <label for="fav_color">สีที่ชอบ</label>
+            <select id="color" name="color">
+                <option value="red">สีแดง</option>
+                <option value="green">สีเขียว</option>
+                <option value="blue">สีน้ำเงิน</option>
+            </select>
+            <br>
+            <label for="typeSong">แนวเพลงที่ชอบ</label>
+            <input type="radio" id="tsong1" name="typeSong" value="tsong1">
+            <label for="tsong1">เพื่อชีวิต</label>
+            <input type="radio" id="tsong2" name="typeSong" value="tsong2">
+            <label for="tsong2">ลูกทุ่ง</label>
+            <input type="radio" id="tsong3" name="typeSong" value="tsong3">
+            <label for="tsong3">อื่นๆ</label>
+            <br>
+            <br>
+            <input type="checkbox" id="accept" value="accept">
+            <label for="accept">ยินยอมให้เก็บข้อมูล</label>
+            </form>
+            <br>
+            <button type="reset">Reset</button>
+            <button type="submit">Submit</button><br>
+    </table>
 </body>
 </html>
