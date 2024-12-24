@@ -3,9 +3,10 @@
     <meta charset="UTF-8">
     <title>Page Title</title>
     <link rel="stylesheet" type="text/css" href="mystyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Workshop #HTML - FORM</h1>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;700&display=swap">
     <table>
         <form>
@@ -32,14 +33,27 @@
             
             <tr>
                 <td><label for="gender">เพศ</label>
-                <td><input type="radio" id="male" name="gender" value="male">
-                    <label for="ชาย">ชาย </label>
-                    <input type="radio" id="female" name="gender" value="female">
-                    <label for="หญิง">หญิง</label><br></td></td>
+                <td><div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      ชาย
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      หญิง
+                    </label>
+                  </div>
+                </td>
+                </td>
             </tr>
             <tr>
                 <td><label for="img">รูป</label></td>
-                <td><input type="file" id="myfile" name="myfile"><br></td>
+                <td><div class="mb-3">
+                    <label for="formFileMultiple" class="form-label"></label>
+                    <input class="form-control" type="file" id="formFileMultiple" multiple>
+                  </div><br></td>
             </tr>
             
             <tr>
@@ -58,12 +72,24 @@
             
             <tr>
                 <td><label for="typeSong">แนวเพลงที่ชอบ</label></td>
-                <td><input type="radio" id="tsong1" name="typeSong" value="tsong1">
-                    <label for="tsong1">เพื่อชีวิต</label>
-                    <input type="radio" id="tsong2" name="typeSong" value="tsong2">
-                    <label for="tsong2">ลูกทุ่ง</label>
-                    <input type="radio" id="tsong3" name="typeSong" value="tsong3">
-                    <label for="tsong3">อื่นๆ</label><br>
+                <td><div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      เพื่อชีวิต
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      ลูกทุ่ง
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      อื่นๆ
+                    </label>
+                  </div><br>
                 </td>
             </tr>
             <tr>
@@ -74,8 +100,8 @@
             
             <br>
             <tr>
-                <td><br><button type="reset">Reset</button></td>
-                <td><br><button type="submit">Submit</button><br></td>
+                <td><br><button type="button" class="btn btn-secondary">Reset</button></td>
+                <td><br><button type="button" class="btn btn-success">Submit</button><br></td>
             </tr>
     </table>
 </body>
