@@ -8,7 +8,6 @@
     <div class="container mt-5">
 <form action="{{url('/newmycontroller')}}" 
     method="post">
-    <?php $myvar = (int)2; ?>
     @csrf
     <div class="row mb-3">
           <label for="input" >ป้อนตัวเลขที่ต้องการ </label>
