@@ -9,7 +9,6 @@
 <form action="{{url('/newmycontroller')}}" 
     method="post">
     @csrf
-    {{ $myinput }}
     <div class="row mb-3">
           <label for="input" >ป้อนตัวเลขที่ต้องการ </label>
               <input type="number" class="form-control" id="myinput" name="myinput" placeholder="ตัวเลข 1, 2, 3,..." require>
