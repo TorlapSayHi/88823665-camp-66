@@ -7,10 +7,7 @@ use Illuminate\Http\Request;
 class NewMyController extends Controller
 {
     //
-    function abc(Request $req, $myvar=""){
-        ?>
-        
-        <?php
+    function multiplicationtable(Request $req, $myvar=""){
         $data['value_id'] = $myvar;
         $data['myinput'] = $req->input('myinput');
         return view('newview', $data);

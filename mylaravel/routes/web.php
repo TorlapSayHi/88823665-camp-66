@@ -19,7 +19,7 @@ Route::post("/mycontroller/{id?}",
 [MyController::class, 'myfunction']);
 
 Route::get("/newmycontroller/{id?}", 
-[NewMyController::class, 'abc']);
+[NewMyController::class, 'multiplicationtable']);
 
 Route::post("/newmycontroller/{id?}", 
-[NewMyController::class, 'abc']);
+[NewMyController::class, 'multiplicationtable']);
