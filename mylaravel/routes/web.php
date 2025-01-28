@@ -6,6 +6,7 @@ use App\Http\Controllers\NewMyController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Error404;
 
 Route::get('/', function () {
     return view('welcome');
@@ -19,6 +20,10 @@ Route::get('/register',
 
 Route::get('/home', 
     [HomeController::class, 'index']);
+
+Route::get('/errors/404', 
+    [Errors404::class, 'errors404']);
+
 
 Route::get('/hello', function () {
     return "<h1>Hellow World!!!!!</h1>";
