@@ -6,41 +6,32 @@ use App\Http\Controllers\NewMyController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Error404;
+use App\Http\Controllers\UserController;
 
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/login', 
-    [LoginController::class, 'index']);
-    
-Route::get('/register', 
-    [RegisterController::class, 'index']);
-
-Route::get('/home', 
-    [HomeController::class, 'index']);
-
-Route::get('/errors/404', 
-    [Errors404::class, 'errors404']);
-
-
 Route::get('/hello', function () {
-    return "<h1>Hellow World!!!!!</h1>";
+    return "<h1>Hello world</h1>";
 });
+Route::get("/mycontroller/{id?}",
+[Mycontroller::class,'myfunction']);
 
-Route::get("/mycontroller/{id?}", 
-[MyController::class, 'myfunction']);
+Route::post('/mycontroller/{id?}',
+[Mycontroller::class,'myfunction']);
 
-Route::post("/mycontroller/{id?}", 
-[MyController::class, 'myfunction']);
-
-Route::get("/newmycontroller/{id?}", 
-[NewMyController::class, 'multiplicationtable']);
-
-Route::post("/newmycontroller/{id?}", 
-[NewMyController::class, 'multiplicationtable']);
-
-Route::get('/', function (){
+Route ::get('/',function(){
     return view('layouts.default');
 });
+
+Route ::get('/home',function(){
+    return view('home');
+});
+
+Route ::get('/login',[LoginController::class,'index']);
+Route ::get('/register',[RegisterController::class,'index']);
+Route ::post('/register',[RegisterController::class,'create']);
+Route ::get('/user',[UserController::class,'index']); 
+Route ::get('/user/{id}',[UserController::class,'edit']);
+Route ::put ('/user',[UserController::class,'saveEdit']);
+Route ::delete ('/user',[UserController::class,'delete']);
