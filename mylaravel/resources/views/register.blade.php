@@ -86,7 +86,7 @@
           name.value = "new test"
           name = $('#name').val("new with jquery")
           $('name').addClass('is-invalid')
-            return true;
+            return false;
     }
     $(document).ready(function(){
 
