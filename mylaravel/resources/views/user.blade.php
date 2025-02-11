@@ -686,8 +686,9 @@
                       <thead>
                         <tr>
                           <th style="width: 10px">#</th>
-                          <th>Task</th>
-                          <th>Progress</th>
+                          <th>Name</th>
+                          <th>Email</th>
+                          <th>Edit / Delete</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -697,13 +698,14 @@
                         <tr class="align-middle">
                           <td>{{$index + 1}}</td>
                           <td>{{$user -> name}}</td>
+                          <td>{{$user -> email}}</td>
                           <td class="text-end">
                             <a href="{{url('/user/'.$user -> id)}}"> <button class="btn btn-warning"> edit </button></a>
-                            <form action="{{url('/user')}}" method="post" style="display:inline"> 
-                                @csrf
-                                @method('delete')
-                                <input type="hidden" name="id" value="{{$user -> id}}">
-                                <button class="btn btn-danger"> delete </button>
+                            <form action="{{ url('/user/')}}" method="post" style="display: inline" onsubmit="return confirm_delete(this);">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{ $user->id}}">
+                                    <button class="btn btn-danger" > delete </button>
+                                    @method('delete')
                             </form>
                           </td>
                         </tr>
@@ -782,3 +784,44 @@
     <!--end::OverlayScrollbars Configure-->
     <!--end::Script-->
   </body>
+
+  @section('scripts')
+<script>
+    function confirm_delete(form) {
+        const swalWithBootstrapButtons = Swal.mixin({
+  customClass: {
+    confirmButton: "btn btn-success",
+    cancelButton: "btn btn-danger"
+  },
+  buttonsStyling: false
+});
+swalWithBootstrapButtons.fire({
+  title: "Are you sure?",
+  text: "You won't be able to revert this!",
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonText: "Yes, delete it!",
+  cancelButtonText: "No, cancel!",
+  reverseButtons: true
+}).then((result) => {
+  if (result.isConfirmed) {
+    swalWithBootstrapButtons.fire({
+      title: "Deleted!",
+      text: "Your user has been deleted.",
+      icon: "success"
+    });
+    form.submit();
+  } else if (
+    result.dismiss === Swal.DismissReason.cancel
+  ) {
+    swalWithBootstrapButtons.fire({
+      title: "Cancelled",
+      text: "Your user is safe :)",
+      icon: "error"
+    });
+  }
+});
+        return false;
+    }
+</script>
+@endsection

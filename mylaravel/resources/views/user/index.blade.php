@@ -26,7 +26,7 @@
                     <a href="{{url('/user) .$user->id}}">
                     <button class="btn btn-warning">Edit</button>
                     </a>
-                    <form action="{{url('/user)}}" onsubmit="return clickme()" method="post" style="display: inline;">
+                    <form action="{{url('/user)}}" onsubmit="return confirm_delete(this)" method="post" style="display: inline;">
                       @csrf
                       @method delete
                       <button class="btn btn-danger">Delete</button>
@@ -54,26 +54,4 @@
 </div>
 @endsection
 
-@section('script')
-<script>
-  function clickme(){
-    Swal.fire({
-      title: "Are you sure",
-      text: "Delete or not?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
-      if (result.isConfirmed){
-        return true;
-      }
-      return false;
-    });
-    return false;
-  }
-  $(document).ready(function(){
 
-  })
-</script>
