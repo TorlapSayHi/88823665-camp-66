@@ -25,26 +25,33 @@ Route::post('/mycontroller/{id?}',
 // Route ::get('/',function(){
 //     return view('layouts.default');
 // });
-Route ::get('/',[HomeController::class,'index'])->middleware([CheckLogin::class]);
+Route::get('/',
+[HomeController::class,'index'])->middleware([CheckLogin::class]);
 
-Route ::get('/home',function(){
+Route::get('/home',function(){
     return view('home');
 });
 
-Route ::get('/login',[LoginController::class,'index']);
-Route ::post('/login',[LoginController::class,'login']);
+Route::get('/login',[LoginController::class,'index']);
+Route::post('/login',[LoginController::class,'login']);
 
-Route ::get('/logout',function(){
+Route::get('/logout',function(){
     session()->forget('user');
     return redirect('/login');
 });
 
-Route ::get('/register',[RegisterController::class,'index']);
-Route ::post('/register',[RegisterController::class,'create']);
-Route ::get('/user',[UserController::class,'index']);
-Route ::get('/user/{id}',[UserController::class,'edit']);
-Route ::put ('/user',[UserController::class,'saveEdit']);
-Route ::delete ('/user',[UserController::class,'delete']);
+Route::get('/register',[RegisterController::class,'index']);
+Route::post('/register',[RegisterController::class,'create']);
+Route::get('/user',[UserController::class,'index']);
+Route::get('/user/{id}',[UserController::class,'edit']);
+Route::put('/user',[UserController::class,'saveEdit']);
+Route::delete('/user',[UserController::class,'delete']);
+
+Route::get('/product',[ProductController::class,'index']
+)->middleware([CheckLogin::class,]);
+Route::post('/product',[ProductController::class,'store']
+)->middleware([CheckLogin::class,]);
+
 
 // Route ::get('/product',[ProductController::class,'index']->middleware([Check::class]));
 // Route ::post('/product',[ProductController::class,'store']->middleware([Check::class]));
