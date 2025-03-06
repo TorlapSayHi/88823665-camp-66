@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SocialLogin;
 use App\Http\Middleware\Checklogin;
 
 Route::get('/', function () {
@@ -52,6 +53,7 @@ Route::get('/product',[ProductController::class,'index']
 Route::post('/product',[ProductController::class,'store']
 )->middleware([CheckLogin::class,]);
 
-
+Route::get('auth/google',[SocialLogin::class,'redirect'])->name('google-auth');
+Route::get('auth/google/callback',[SocialLogin::class,'callback']);
 // Route ::get('/product',[ProductController::class,'index']->middleware([Check::class]));
 // Route ::post('/product',[ProductController::class,'store']->middleware([Check::class]));

@@ -9,14 +9,14 @@
     <div class="card">
       <div class="card-body login-card-body">
         <p class="login-box-msg">Sign in to start your session</p>
-        <?php 
+        <?php
           $error = session()->get('error');
           if($error){
         ?>
           <div class="text-danger">
             {{$error}}
           </div>
-        <?php 
+        <?php
           }
         ?>
         <form action="{{ url('/login')}}" method="post">
@@ -48,13 +48,13 @@
           </div>
           <!--end::Row-->
         </form>
-        
+
         <div class="social-auth-links text-center mb-3 d-grid gap-2">
           <p>- OR -</p>
           <a href="#" class="btn btn-primary">
             <i class="bi bi-facebook me-2"></i> Sign in using Facebook
           </a>
-          <a href="#" class="btn btn-danger">
+          <a href="{{ route('google-auth') }}" class="btn btn-danger" >
             <i class="bi bi-google me-2"></i> Sign in using Google+
           </a>
         </div>

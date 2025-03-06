@@ -30,5 +30,10 @@ class LoginController extends Controller
         }
 
         // return redirect('/home'); //แก้ตรงนี้นะ ถ้าใส่แล้วกลับไปไม่ถูกหน้า ลบ Home ออก
+
+
+        
     }
+
+
 }
